@@ -8,10 +8,8 @@ data = data.dropna()
 
 y데이터 = data['diabetes'].values
 
-x데이터 = [ ]
+x데이터 = data.iloc[:, 0:8].values.tolist()
 
-for i, rows in data.iterrows():
-    x데이터.append([ rows['pregnant'], rows['plasma'], rows['pressure'], rows['thickness'], rows['insulin'], rows['bmi'], rows['pedigree'], rows['age'] ])
 
 model = tf.keras.models.Sequential([
     tf.keras.layers.Dense(64, activation='tanh'),
